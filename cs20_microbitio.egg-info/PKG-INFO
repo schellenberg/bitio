@@ -2,7 +2,7 @@ Metadata-Version: 1.2
 Name: cs20-microbitio
 Version: 0.1
 Summary: Use Micro:bit as an I/O device in Python.
-Home-page: needs to be added...
+Home-page: https://github.com/schellenberg/bitio
 Author: Dan Schellenberg
 Author-email: schellenberg@gmail.com
 License: MIT

@@ -17,7 +17,7 @@ setup(
       bitio module, so that it can be easily installed in Thonny using
       Manage Packages (pip install). This simplifies the install process
       for the students, so they don't need to worry about where to save files.""",
-      url="needs to be added...",
+      url="https://github.com/schellenberg/bitio",
       author="Dan Schellenberg",
 	    author_email="schellenberg@gmail.com",
       license="MIT",
