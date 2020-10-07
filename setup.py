@@ -11,7 +11,7 @@ for line in open(os.path.join(setupdir, 'requirements.txt'), encoding="UTF-8"):
 
 setup(
       name="cs20-microbitio",
-      version="0.1",
+      version="0.2",
       description="Use Micro:bit as an I/O device in Python.",
       long_description="""This is just a package containing David Whaley's 
       bitio module, so that it can be easily installed in Thonny using
@@ -19,7 +19,7 @@ setup(
       for the students, so they don't need to worry about where to save files.""",
       url="https://github.com/schellenberg/bitio",
       author="Dan Schellenberg",
-	    author_email="schellenberg@gmail.com",
+        author_email="schellenberg@gmail.com",
       license="MIT",
       classifiers=[
         "Environment :: MacOS X",
@@ -48,7 +48,7 @@ setup(
       platforms=["Windows", "macOS", "Linux"],
       python_requires=">=3.4",
       package_dir={'microbit': 'microbit'},
-	    package_data={'microbit': ['drivescan/*', 'portscan/*', 'repl/*', 'serial/*']},
+        package_data={'microbit': ['drivescan/*', 'portscan/*', 'repl/*', 'serial/*']},
       install_requires=requirements,
       packages=["microbit"],
 )

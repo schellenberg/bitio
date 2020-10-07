@@ -9,6 +9,17 @@ with Python 3 on Mac, PC, Raspberry Pi and Linux.
 
 ![bitio logo](bitio.png)
 
+## NEWSFLASH - using with a V1.5 micro:bit
+
+If you have a V1.5 micro:bit, a new sensor was fitted for the accelerometer and compass.
+This requires new hardware drivers in order to work.
+
+A very quick fix for this is to drag the bitio.hex file inside this repository
+into https://python.microbit.org then press the DOWNLOAD button. This will
+update the internal drivers automaticaly and allow the accelerometer to work
+on both older and newer devices. (I will update this repo soon, when testing
+has been completed)
+
 ## Where is the latest version?
 
 The bitio library was written in part to support a new chapter to the highly successful
@@ -23,10 +34,6 @@ go right to the author's website and get the latest code from here:
 
 [Development version - on whaleygeek site](https://github.com/whaleygeek/bitio)
 
-It will soon be added to pypi, so very soon you will be able to do:
-```pip install bitio```
-or
-```pip3 install bitio```
 
 ## What can I do with it?
 
@@ -44,10 +51,33 @@ inside a Python program on a bigger computer.
 
 # Show me some projects!
 
-Mr NCSComputing has written up a lot of projects using bitio and minecraft
-together here: 
+News Flash! EduBlocks now has support for bitio!!
+
+Josh from EduBlocks added bitio support, after we met at PyconUK 2017.
+
+[Edublocks and bitio](https://edublocks.org/)
+
+Mr NCSComputing (Chris Penn) has written up a lot of projects using bitio and minecraft
+together: 
 
 [Bitio with Minecraft](http://warksjammy.blogspot.co.uk/2017/07/bitio-blogs-in-one-place.html?view=timeslide)
+
+Sean M. Tracey has written a NodeRed wrapper for it:
+
+[NodeRed](https://flows.nodered.org/node/node-red-contrib-bitio-wrapper)
+
+Giles Booth has built an internet controlled Radio with it:
+
+[Internet Radio](http://www.suppertime.co.uk/blogmywiki/2017/08/microbit-controlled-radio/)
+
+Dr Simon Monk wrote about BitIO in his new MicroPython book:
+
+[Dr Simon Monk](https://www.amazon.com/Programming-BBC-micro-Getting-MicroPython/dp/1260117588)
+
+And of course, David Whale added a chapter to the book Adventures in Minecraft all about
+micro:bit and it uses bitio:
+
+[Adventures in Minecraft](https://www.amazon.co.uk/Adventures-Minecraft-David-Whale/dp/1119439582)
 
 
 # Getting Started
@@ -57,7 +87,7 @@ designed to be mostly 'install free', specifically to make it easy for
 schools to use the package where there is a mostly locked-down Python
 environment.
 
-Press CLONE OR DOWNLOAD
+Press the green CODE button which shows a download icon
 
 choose DOWNLOAD ZIP
 
@@ -262,6 +292,26 @@ micro:bit again and this will overwrite whatever is on the micro:bit screen.
         microbit.sleep(500)
 ```
 
+## Using the radio
+
+(see also radio.py example).
+
+Thanks to @jarvisteach for this contribution.
+
+```
+    import microbit
+    microbit.radio.config(group=132, queue=10)
+    microbit.radio.on()
+
+    while True:
+        time.sleep(0.1)
+        incoming = microbit.radio.receive_bytes()
+
+        if incoming != "None":  #TODO: api.py will need better None handler.
+            incoming = stripMakeCodeHeader(incoming)
+            print(incoming)
+```
+
 # TODO ITEMS
 
 These items are currently not implemented in this release, but will be added soon.
@@ -297,6 +347,7 @@ tilt.py - show how to sense tilt movements
 tilt_mc.py - use the tilt with Minecraft
 clocks.py - show a spinning clock
 arrows.py - show a spinning arrow
+radio.py - receive messages from a radio and log to a file (contributed)
 ```
 
 Not all of the features of the micro:bit are made available via this
@@ -393,10 +444,6 @@ I have a big todo list (look in the docs folder).
 One key thing I want to do is to pull all my various micro:bit comms projects into this single package, 
 including bringing in the microbit-gateway project for linking via the micro:bit radio network, amongst other features.
 
-I think this work will also add a radio configuration feature with assistance at the
-micro:bit end, so that it is possible to build multi channel frequency hopping gateways.
-That is a bit of a long term plan at the moment though.
-
 I also have a microbit.GPIO idea in the making, where it could be used a bit like RPi.GPIO
 and form part of my anyio package as another supported platform.
 
@@ -405,12 +452,4 @@ David Whale
 
 @whaleygeek
 
-1st July 2017
-
-
-
-
-
-
-
-
+5th September 2020
