@@ -1,12 +1,11 @@
 Metadata-Version: 1.2
 Name: cs20-microbitio
-Version: 0.1
+Version: 0.2
 Summary: Use Micro:bit as an I/O device in Python.
 Home-page: https://github.com/schellenberg/bitio
 Author: Dan Schellenberg
 Author-email: schellenberg@gmail.com
 License: MIT
-Description-Content-Type: UNKNOWN
 Description: This is just a package containing David Whaley's 
               bitio module, so that it can be easily installed in Thonny using
               Manage Packages (pip install). This simplifies the install process
